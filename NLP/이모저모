@@ -1,5 +1,0 @@
-	1. corpus(말뭉치)를 이용한 unsupervised representation learning
-	  ⁃	pre-training을 통해 얻어진 representation을 직접 활용
-	    ⁃	Word2Vec, ELMO 등
-	  ⁃	pre-trained model을 downstream task에 대해 fine-tuning
-	    ⁃	GPT, BERT 등
