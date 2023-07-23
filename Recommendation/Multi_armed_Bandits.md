@@ -65,7 +65,38 @@
           * c가 커지면 Exploration을 많이 하게되고, 작아지면 Exploitation을 많이 하게 됨
         * UCB 수식의 첫번째 항 Q_t(a)는 Exploitation에 중점을 둔 항이고, 두번째 항은 Explotation에 중점을 둔 항
   * 톰슨 샘플링 (Thompson Sampling)
+    * 주어진 K개의 슬롯의 확률 분포를 구하는 문제
+    * Action a에 해당하는 Reward 추정치인 Q_t(a)를 계산할 때 확률 분포를 따른다고 가정하고 그 추정치를 계속 업데이트하는 방법
+    * 베이지안 추정
+        * 관심있는 모수에 대한 사전 분포를 정의하고, 관측된 값으로부터 사후 분포를 이끌어냄 (모수값 분포 추정)
+        * 사전확률 분포와 관측 데이터에 대한 가능도(likelihood)가 있다면, 베이즈 정리를 통해 사후확률 분포 추정 가능
+          *<img width="777" alt="스크린샷 2023-07-23 오후 8 23 08" src="https://github.com/sally-yeom/TIL/assets/61625764/8fdb29ee-7df1-4d36-9a00-1d72f5baebc3">
+          * 사전확률 분포 = 사전에 알고 있던 클릭률의 분포
+          * 가능도 = 베르누이 시행 관측 데이터 (클릭 발생 or 미발생) -> 독립적인 베르누이 분포의 곱
+          * 사후확률 분포 = 다음 시도 횟수 때 클릭률의 분포
+        * 어떤 사전 확률 분포와 어떤 가능도 함수를 사용하냐에 따라 사후확률 분포의 모양이 달라짐
+    * 주로 베타분포를 많이 사용
+        * <img width="539" alt="스크린샷 2023-07-23 오후 8 25 32" src="https://github.com/sally-yeom/TIL/assets/61625764/2f870b10-283d-4a75-99be-9f10a102582e">
+        * α, β에 따라 모양이 다양하게 구성될 수 있음
+        * 켤레 사전 분포 (Conjugate prior) 만족
+          * 베타분포가 사전확률 분포로써 베르누이 분포와 함께 베이지안 추정에 사용될 때, 사후확률 분포도 모수만 다를 뿐, 베타분포를 따름
+          * <img width="390" alt="스크린샷 2023-07-23 오후 8 37 51" src="https://github.com/sally-yeom/TIL/assets/61625764/485600d4-0b9f-4d4e-876a-9411f3fdf8a8">
+    * 시행 전 가정
+        *  α : 노출이 되고 클릭한 횟수
+        *  β : 노출이 되고 클릭하지 않은 횟수
+        *  Beta(α+1,β+1) : 베타분포
+        *  베타분포에서 샘플링한 값이 최종적으로 Item을 클릭할 확률
+    * ...
+    * Step 별 추세
+        * <img width="714" alt="스크린샷 2023-07-23 오후 8 39 36" src="https://github.com/sally-yeom/TIL/assets/61625764/1f893e7b-47ba-4244-830f-94d7af64288a">
+        * <img width="712" alt="스크린샷 2023-07-23 오후 8 39 47" src="https://github.com/sally-yeom/TIL/assets/61625764/68ed7983-e6d2-40c3-b0ea-446fcb633cf2">
+        * <img width="705" alt="스크린샷 2023-07-23 오후 8 39 53" src="https://github.com/sally-yeom/TIL/assets/61625764/a87f281f-a4e2-4dbe-b99b-a11c699ddd10">
+        * <img width="706" alt="스크린샷 2023-07-23 오후 8 40 03" src="https://github.com/sally-yeom/TIL/assets/61625764/ff12e647-b11d-4e19-9699-369eb1a17718">
+    * 위와 같은 과정이 진행되면, Exploitation과 Exploration이 확률 분포를 따라 적절한 Trade-off가 유지되며 다양한 Item을 노출시키게 됨
+    * 그리고 결국에는 가장 Reward가 높은 Item을 노출하는 것으로 수렴하는 결과를 얻을 수 있음
   * LinUCB
 
+
+## MAB를 적용한 추천 시스템
 
 
