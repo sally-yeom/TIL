@@ -1,4 +1,4 @@
-## A/B Test Recap
+<img width="198" alt="스크린샷 2023-07-23 오후 5 32 49" src="https://github.com/sally-yeom/TIL/assets/61625764/25ecb031-b45b-41b8-b254-d86052c887f1">## A/B Test Recap
   * 목적
     * A, B 안 중 어떤게 가장 좋은 성과를 얻을 수 있을까?
   * A/B Test 컨셉
@@ -32,8 +32,22 @@
     * MAB에서는 모든 행동은 순서대로 발생한다고 가정
     * t : 시점
     * <img width="503" alt="스크린샷 2023-07-23 오후 5 16 03" src="https://github.com/sally-yeom/TIL/assets/61625764/7a97c564-8c3b-480b-8208-0caf3a983980">
+    * <img width="686" alt="스크린샷 2023-07-23 오후 5 22 54" src="https://github.com/sally-yeom/TIL/assets/61625764/1e28a503-b819-4329-b37a-8c47c06d1fbc">
 
-   
+## MAB의 알고리즘 (Policy)
+  * 그리디 (Greedy)
+    * 가장 간단한 Policy 
+    * Q_t(a)를 구하기 위해 action에서 얻은 reward의 단순평균 사용 (현재까지 관측된 개별 슬롯 reward의 표본평균을 구함) -> 평균 reward가 최대인 action을 선택
+    * <img width="684" alt="스크린샷 2023-07-23 오후 5 30 33" src="https://github.com/sally-yeom/TIL/assets/61625764/54b7853c-ff93-4eab-926a-49268c7215f6">
+    * <img width="198" alt="스크린샷 2023-07-23 오후 5 32 49" src="https://github.com/sally-yeom/TIL/assets/61625764/9ab4366d-3262-4e3a-9f01-76c8c643122e">
+    * Q_t(a)는 reward가 수집될 수록 계속 업데이트되며, reward가 최대인 action이 선택됨
+    * 단점
+        * 처음에 선택되는 슬롯이 본래 좋은 reward를 주는 슬롯이었지만, 하필 낮은 reward를 주었다면?
+        * 해당 슬롯은 reward 평균이 낮기 때문에 다시 선택될 기회가 사라짐 (Exploration이 충분히 되지 않은 상태에서 Exploitation 진행)
+  * 입실론-그리디 (Epsilon-Greedy)
+  * UCB (Upper Confidence Bound)
+  * 톰슨 샘플링 (Thompson Sampling)
+  * LinUCB
 
 
 
