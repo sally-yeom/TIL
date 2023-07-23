@@ -1,4 +1,4 @@
- ## A/B Test Recap
+## A/B Test Recap
   * 목적
     * A, B 안 중 어떤게 가장 좋은 성과를 얻을 수 있을까?
   * A/B Test 컨셉
@@ -18,7 +18,7 @@
           * 계절성을 고려해 테스트 기간을 정해야 함 (그러나 기간 설정에 따라 결과는 달라질 수 있음)
       * 결국 테스트가 많을 수록 비용문제, 적게 할 수록 신뢰성의 문제가 발생하는 것
 
- ## MAB (Multi Armed Bandit)
+## MAB (Multi Armed Bandit)
   * 개념
     * 여러 대의 슬롯 머신이 존재하며 각 슬롯 당 돈을 따고 잃을 확률이 다른 경우, 어떻게 해야 가장 돈을 딸 확률이 높은 슬롯을 선택할 수 있을까?
     * Exploration - Exploitation tradeoff 가 이 상황에도 동일하게 적용
