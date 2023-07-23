@@ -85,8 +85,10 @@
         *  α : 노출이 되고 클릭한 횟수
         *  β : 노출이 되고 클릭하지 않은 횟수
         *  Beta(α+1,β+1) : 베타분포
-        *  베타분포에서 샘플링한 값이 최종적으로 Item을 클릭할 확률
-    * ...
+        *  Beta(α+1,β+1)을 따른다고 가정했으므로 -> 베타분포에서 샘플링한 값이 최종적으로 Item을 클릭할 확률
+    * Step 별 설명
+        *  ...
+        *  ...
     * Step 별 추세
         * <img width="714" alt="스크린샷 2023-07-23 오후 8 39 36" src="https://github.com/sally-yeom/TIL/assets/61625764/1f893e7b-47ba-4244-830f-94d7af64288a">
         * <img width="712" alt="스크린샷 2023-07-23 오후 8 39 47" src="https://github.com/sally-yeom/TIL/assets/61625764/68ed7983-e6d2-40c3-b0ea-446fcb633cf2">
@@ -95,8 +97,39 @@
     * 위와 같은 과정이 진행되면, Exploitation과 Exploration이 확률 분포를 따라 적절한 Trade-off가 유지되며 다양한 Item을 노출시키게 됨
     * 그리고 결국에는 가장 Reward가 높은 Item을 노출하는 것으로 수렴하는 결과를 얻을 수 있음
   * LinUCB
+    * 각 User의 Context Vector에 따라서 어떤 Item이 더 높은 Reward를 줄지(클릭율이 높을지) 보고 추천하도록 학습
+    * Context : ID 외의 Features (User의 demographic, Item categorhy, tags)
+    * Context-free Bandit
+        * 동일한 Action에 대한 User의 Context 정보에 관계없이 항상 동일한 Reward를 가진다고 가정하고 모델링하는 방법 (UCB, Epsilon Greedy)
+    * Contextual Bandit
+        * User의 Context 정보에 따라 동일한 Action이더라도 다른 Reward를 가진다고 가정
+        * 개인화 추천과도 연관있음
+    * 정의
+        * <img width="687" alt="스크린샷 2023-07-23 오후 9 26 16" src="https://github.com/sally-yeom/TIL/assets/61625764/b2711848-e3f1-4c39-9289-b63d013a8aa0">
+    * 예시
+        * <img width="685" alt="스크린샷 2023-07-23 오후 9 30 33" src="https://github.com/sally-yeom/TIL/assets/61625764/c0ebf1cc-acde-4fb1-bc44-026883c1957b">
+        * 위와 같이 서로 다른 Context를 가진 3명의 User가 존재하는 경우
+          * x_t는 각 유저의 Context Vector로 4차원으로 각 차원은 다음의 특성을 갖는다고 가정 (male, female, young, old)
+          * ([1,0,0,1]은 male과 old의 특성)
+        * 각 User들이 어떤 Item을 선택하느냐에 따라 MAB 추천이 달라짐 -> 각 Item Action θ_a^∗에 대해 학습 필요
+        * <img width="688" alt="스크린샷 2023-07-23 오후 9 34 55" src="https://github.com/sally-yeom/TIL/assets/61625764/30c1b886-f263-4948-bca1-54b98c0988ba">
+        * 첫 번째 Action (θ_1^∗)은 2명에게 수집되었으므로 D_1 업데이트 (이하 동문)
+        * 이렇게 진행하면 Context vector와 같은 차원의 θ_a^∗가 구해짐
+          * θ_1^∗ : 2번째 차원이 가장 높은 weight / female 특성을 가진 User에게 줄 수 있는 Reward가 가장 큼
+          * θ_2^∗ : 4번째 차원이 가장 높은 weight / old 특성을 가진 User에게 줄 수 있는 Reward가 가장 큼
+          * θ_3^∗ : 3번째 차원이 가장 높은 weight / young 특성을 가진 User에게 줄 수 있는 Reward가 가장 큼
 
 
 ## MAB를 적용한 추천 시스템
 
+
+
+
+
+- 참고
+  - https://playinpap.github.io/mab/#%ED%86%B0%EC%8A%A8-%EC%83%98%ED%94%8C%EB%A7%81-thompson-sampling
+  - https://velog.io/@minchoul2/RecSys-%EC%B6%94%EC%B2%9C%EC%9D%84-%EC%9C%84%ED%95%9C-MABMulti-Armed-Bandit-%EC%8B%AC%ED%99%94-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98Thompson-sampling-LinUCB
+  - https://yjjo.tistory.com/21
+  - https://github.com/conormm/bandit_algorithms/blob/master/bandits_post_code.py
+  - http://www.kwangsiklee.com/2018/03/%ED%86%B0%EC%8A%A8-%EC%83%98%ED%94%8C%EB%A7%81thompson-sampling%EC%97%90-%EB%8C%80%ED%95%9C-%EC%A7%81%EA%B4%80%EC%A0%81%EC%9D%B8-%EC%9D%B4%ED%95%B4/
 
