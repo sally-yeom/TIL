@@ -1,4 +1,4 @@
-<img width="198" alt="스크린샷 2023-07-23 오후 5 32 49" src="https://github.com/sally-yeom/TIL/assets/61625764/25ecb031-b45b-41b8-b254-d86052c887f1">## A/B Test Recap
+## A/B Test Recap
   * 목적
     * A, B 안 중 어떤게 가장 좋은 성과를 얻을 수 있을까?
   * A/B Test 컨셉
