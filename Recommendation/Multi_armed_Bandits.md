@@ -2,7 +2,7 @@
   * 목적
     * A, B 안 중 어떤게 가장 좋은 성과를 얻을 수 있을까?
   * A/B Test 컨셉
-    * 특정 기간 동안, User마다 A, B (or C, D ...까지 N개) 안 중 랜덤하게 노출하여 가장 좋은 성과를 가지는 안 선택
+    * 특정 기간 동안, User마다 A, B (or C, D ...까지 N개) 안 중 랜덤하게 노출하여 가장 좋은 성과를 가지는 안 선택
   * 잔존하는 문제?
     * 탐색과 활용의 문제 (Exploration - Exploitation tradeoff)
       * 탐색 (Exploration)
