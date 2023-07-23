@@ -45,7 +45,25 @@
         * 처음에 선택되는 슬롯이 본래 좋은 reward를 주는 슬롯이었지만, 하필 낮은 reward를 주었다면?
         * 해당 슬롯은 reward 평균이 낮기 때문에 다시 선택될 기회가 사라짐 (Exploration이 충분히 되지 않은 상태에서 Exploitation 진행)
   * 입실론-그리디 (Epsilon-Greedy)
+    * Greedy에서 Exploration을 촉진하도록 보완된 Policy
+    * Epsilon(ϵ)은 작은 숫자를 나타내는 그리스 문자
+    * 일정한 확률로 greedy 하게 선택할지(1-ϵ) 랜덤하게 선택할지(ϵ)를 결정
+    * <img width="480" alt="스크린샷 2023-07-23 오후 7 46 16" src="https://github.com/sally-yeom/TIL/assets/61625764/df2f2149-6f7a-4ca3-b760-d09422104070">
+    * MAB 비교시 베이스로 많이 사용됨
+    * 단점
+        * 데이터가 많이 쌓여 최적의 값을 찾았더라도, 항상 ϵ의 확률로 무작위 탐색 (Exploration)을 하기 때문에 후반에는 최적 값과 멀어지는 결과가 나올 수 있음
+        * Exploration을 과도하게 하는 문제
   * UCB (Upper Confidence Bound)
+    * 시간이 지날수록 Exploitation을 증가시키는 방식
+    * 추정된 가치 Q_t(a)에서 일종의 신뢰구간을 구하여, 그 구간의 위쪽 신뢰구간의 행동을 선택
+        * <img width="707" alt="스크린샷 2023-07-23 오후 7 57 54" src="https://github.com/sally-yeom/TIL/assets/61625764/af44bb40-592f-4026-92ef-d09177c76e33">
+        * t : 현재 시점
+        * N_t(a) : 현재 시점까지 행동 a를 한 횟수
+        * 위 식의 형태는 일반적인 신뢰구간을 구하는 식이 변형된 것
+          * μ+c(σ^2/n)^(1/2)에서 μ -> Q_t(a) / σ^2 -> ln(t) 로 변경
+        * 상수 c는 신뢰구간 폭을 제어하는 Parameter
+          * c가 커지면 Exploration을 많이 하게되고, 작아지면 Exploitation을 많이 하게 됨
+        * UCB 수식의 첫번째 항 Q_t(a)는 Exploitation에 중점을 둔 항이고, 두번째 항은 Explotation에 중점을 둔 항
   * 톰슨 샘플링 (Thompson Sampling)
   * LinUCB
 
