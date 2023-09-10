@@ -1,10 +1,10 @@
-## A/B Test Recap
+## A/B Test Recap
   * 목적
     * A, B 안 중 어떤게 가장 좋은 성과를 얻을 수 있을까?
   * A/B Test 컨셉
     * 특정 기간 동안, User마다 A, B (or C, D ...까지 N개) 안 중 랜덤하게 노출하여 가장 좋은 성과를 가지는 안 선택
   * 잔존하는 문제?
-    * 탐색과 활용의 문제 (Exploration - Exploitation tradeoff)
+    * 탐색과 활용의 문제 (Exploration - Exploitation tradeoff)
       * 탐색 (Exploration)
         * 가장 나은 대안을 찾기 위해 테스트하는 과정
         * 테스트를 할 수록 기회비용 발생, A가 좋을 것으로 예상되었지만 실제 테스트 결과 A가 더 좋은것으로 나온다면?
@@ -18,7 +18,7 @@
           * 계절성을 고려해 테스트 기간을 정해야 함 (그러나 기간 설정에 따라 결과는 달라질 수 있음)
       * 결국 테스트가 많을 수록 비용문제, 적게 할 수록 신뢰성의 문제가 발생하는 것
 
-## MAB (Multi Armed Bandit)
+## MAB (Multi Armed Bandit)
   * 개념
     * 여러 대의 슬롯 머신이 존재하며 각 슬롯 당 돈을 따고 잃을 확률이 다른 경우, 어떻게 해야 가장 돈을 딸 확률이 높은 슬롯을 선택할 수 있을까?
     * Exploration - Exploitation tradeoff 가 이 상황에도 동일하게 적용
@@ -120,7 +120,7 @@
           * θ_3^∗ : 3번째 차원이 가장 높은 weight / young 특성을 가진 User에게 줄 수 있는 Reward가 가장 큼
 
 
-## MAB를 적용한 추천 시스템
+## MAB를 적용한 추천 시스템
 
 
 
