@@ -8,7 +8,7 @@
       * Masked Language Model을 적용한 "양방향 모델" -> 논문에서는 양방향 모델의 학습 방법의 효과 입증에 초점
         * Transformer의 인코더 및 디코더 파트의 구조를 활용
         * Pre-train : Encoder의 Masked Language Model 구조를 차용, 양방향의 정보를 활용해 학습
-        * Fine-tuning : Decoder 파트로 예측 (Next  Token Prediction)
+        * Downstream Task Fine-tuning : Decoder 파트로 예측 (Next  Token Prediction)
       * Multi Head Attention
         * Q, K, V를 각각의 Head 별로 쪼갬 -> 각각의 Attnetion을 구한 뒤 concat -> 최종 예측에 사용
       * SASREC은 BERT4REC의 특이 케이스라고 볼 수 있음
