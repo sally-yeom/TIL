@@ -1,5 +1,3 @@
-NCF
-
 ## Neural Collaborative Filtering (NCF)
   * 개념
       * 선형 모델인 MF의 속성과, 비선형 모델인 MLP를 함께 고려하여 모델링
