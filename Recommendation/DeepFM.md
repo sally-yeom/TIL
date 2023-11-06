@@ -62,39 +62,39 @@
       * Wide part, Deep part 모두 같은 임베딩 벡터 공유
   * 구조
       * <img width="821" alt="스크린샷 2023-11-06 오후 4 49 44" src="https://github.com/sally-yeom/TIL/assets/61625764/e277c1eb-b8e3-4f4a-b2bb-411a0c773221">
-          * 입력 형식
-              * <img width="611" alt="스크린샷 2023-11-06 오후 5 28 43" src="https://github.com/sally-yeom/TIL/assets/61625764/a64e2f8b-9ea3-498f-abcc-c63b1940644c">
-          * FM Component
-              * <img width="728" alt="스크린샷 2023-11-06 오후 5 04 13" src="https://github.com/sally-yeom/TIL/assets/61625764/77d77671-b37e-4382-9f9e-54362fc6226f">
-              * order-2 feature interaction 모델링
-              * linear interaction & pairwise interaction 고려
-              * feature latent vector 내적 진행
-              * <img width="809" alt="스크린샷 2023-11-06 오후 4 59 45" src="https://github.com/sally-yeom/TIL/assets/61625764/22415f8a-2ae2-4043-9ede-0279e36499f6">
-                  * Addition Unit : order-1 feature 중요도 반영
-                  * Inner Product Unit : order-2 feature 중요도 반영
-          * Deep Component
-              * <img width="726" alt="스크린샷 2023-11-06 오후 5 05 04" src="https://github.com/sally-yeom/TIL/assets/61625764/61d2f0b0-5060-4a1e-9894-6daf452f0c14">
-              * high-order feature interaction 모델링
-              * Feed-Forward Neural Network
-              * Deep Component를 어떻게 설계하냐에 따라 high-order feature interaction의 학습 성능이 달라질 것
-              * Embedding Layer 상세
-                  * <img width="680" alt="스크린샷 2023-11-06 오후 5 18 43" src="https://github.com/sally-yeom/TIL/assets/61625764/16eec56e-2065-42a6-b0fb-9fc3546e10b4">
-                  * Sparse input features
-                      * categorical & continuous features
-                      * highly sparse, super high-dimensional
-                  * Dense Embeddings
-                      * low-dimensional, dense real-value vector
-                      * input field vector 크기가 필드마다 다르더라도 동일하게 크기 k의 임베딩 e_i로 변환
-                      * <img width="296" alt="스크린샷 2023-11-06 오후 5 23 32" src="https://github.com/sally-yeom/TIL/assets/61625764/51356217-db4c-40a6-a856-b63ae0567a7d">
-                      * <img width="375" alt="스크린샷 2023-11-06 오후 5 23 42" src="https://github.com/sally-yeom/TIL/assets/61625764/16e13698-9234-41e2-ab32-a4c6db56a19b">
-                      * <img width="490" alt="스크린샷 2023-11-06 오후 5 23 56" src="https://github.com/sally-yeom/TIL/assets/61625764/e5579e85-4f11-445d-993d-91fae56fbca6">
-          * 최종 결과물은 클릭 여부
-              * <img width="403" alt="스크린샷 2023-11-06 오후 4 55 13" src="https://github.com/sally-yeom/TIL/assets/61625764/b5d7d5c3-fb5a-44dc-9b99-02762e306aa4">
-              * <img width="142" alt="스크린샷 2023-11-06 오후 4 55 00" src="https://github.com/sally-yeom/TIL/assets/61625764/5b1a15cd-eb52-48d7-a295-b09d02321fb2">
-              * 각각 예측한 점수와 실제 점수 사이의 Error를 역전파 하는 형태로 FM Component, Deep Component를 한꺼번에 학습
-          * FM Component와 Deep Component는 동일한 Feature Embedding을 공유해서 사용 (효율적)
-              * Raw Data에서 low-order, high-order feature interaction을 함께 학습하기에 용이
-              * 복잡한 feature engineering 필요 없음 (end-to-end)
+      * 입력 형식
+          * <img width="611" alt="스크린샷 2023-11-06 오후 5 28 43" src="https://github.com/sally-yeom/TIL/assets/61625764/a64e2f8b-9ea3-498f-abcc-c63b1940644c">
+      * FM Component
+          * <img width="728" alt="스크린샷 2023-11-06 오후 5 04 13" src="https://github.com/sally-yeom/TIL/assets/61625764/77d77671-b37e-4382-9f9e-54362fc6226f">
+          * order-2 feature interaction 모델링
+          * linear interaction & pairwise interaction 고려
+          * feature latent vector 내적 진행
+          - <img width="809" alt="스크린샷 2023-11-06 오후 4 59 45" src="https://github.com/sally-yeom/TIL/assets/61625764/22415f8a-2ae2-4043-9ede-0279e36499f6">
+          - Addition Unit : order-1 feature 중요도 반영
+          - Inner Product Unit : order-2 feature 중요도 반영
+      * Deep Component
+          * <img width="726" alt="스크린샷 2023-11-06 오후 5 05 04" src="https://github.com/sally-yeom/TIL/assets/61625764/61d2f0b0-5060-4a1e-9894-6daf452f0c14">
+          * high-order feature interaction 모델링
+          * Feed-Forward Neural Network
+          * Deep Component를 어떻게 설계하냐에 따라 high-order feature interaction의 학습 성능이 달라질 것
+          * Embedding Layer 상세
+          * <img width="680" alt="스크린샷 2023-11-06 오후 5 18 43" src="https://github.com/sally-yeom/TIL/assets/61625764/16eec56e-2065-42a6-b0fb-9fc3546e10b4">
+          - Sparse input features
+             - categorical & continuous features
+             - highly sparse, super high-dimensional
+          - Dense Embeddings
+             - low-dimensional, dense real-value vector
+             - input field vector 크기가 필드마다 다르더라도 동일하게 크기 k의 임베딩 e_i로 변환
+             - <img width="296" alt="스크린샷 2023-11-06 오후 5 23 32" src="https://github.com/sally-yeom/TIL/assets/61625764/51356217-db4c-40a6-a856-b63ae0567a7d">
+             - <img width="375" alt="스크린샷 2023-11-06 오후 5 23 42" src="https://github.com/sally-yeom/TIL/assets/61625764/16e13698-9234-41e2-ab32-a4c6db56a19b">
+             - <img width="490" alt="스크린샷 2023-11-06 오후 5 23 56" src="https://github.com/sally-yeom/TIL/assets/61625764/e5579e85-4f11-445d-993d-91fae56fbca6">
+      * 최종 결과물은 클릭 여부
+          * <img width="403" alt="스크린샷 2023-11-06 오후 4 55 13" src="https://github.com/sally-yeom/TIL/assets/61625764/b5d7d5c3-fb5a-44dc-9b99-02762e306aa4">
+          * <img width="142" alt="스크린샷 2023-11-06 오후 4 55 00" src="https://github.com/sally-yeom/TIL/assets/61625764/5b1a15cd-eb52-48d7-a295-b09d02321fb2">
+          * 각각 예측한 점수와 실제 점수 사이의 Error를 역전파 하는 형태로 FM Component, Deep Component를 한꺼번에 학습
+      * FM Component와 Deep Component는 동일한 Feature Embedding을 공유해서 사용 (효율적)
+          * Raw Data에서 low-order, high-order feature interaction을 함께 학습하기에 용이
+          * 복잡한 feature engineering 필요 없음 (end-to-end)
   * 기존 모델과 비교
       * <img width="753" alt="스크린샷 2023-11-06 오후 5 40 02" src="https://github.com/sally-yeom/TIL/assets/61625764/391f93c4-2155-4380-9464-bda44a51c5c4">
 
