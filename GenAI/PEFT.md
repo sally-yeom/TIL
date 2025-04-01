@@ -39,14 +39,14 @@
 ## 대표 라이브러리
   * Hugging Face [PEFT 라이브러리](https://huggingface.co/docs/peft/en/index)
   * LoRA, Prefix Tuning, Prompt Tuning 등을 손쉽게 적용 가능
-'''
+```
 EX) from peft import get_peft_model, LoraConfig, TaskType
-'''
+```
 
 
 
 ## LoRA 적용 예제 (Hugging Face)
-'''
+```
 from peft import get_peft_model, LoraConfig, TaskType
 
 peft_config = LoraConfig(
@@ -59,8 +59,7 @@ peft_config = LoraConfig(
 
 peft_model = get_peft_model(base_model, peft_config)
 peft_model.train()
-
-'''
+```
 
 
 
