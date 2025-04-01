@@ -1,5 +1,5 @@
 ## Prompt Engineering
-  * LLM 모델에서 원하는 력 결과를 얻기 위해 입력 프롬프트를 설계 / 조정하는 기술
+  * LLM 모델에서 원하는 력 결과를 얻기 위해 입력 프롬프트를 설계 / 조정하는 기술
 
 
 ## 지시형 프롬프트 (Instruction Prompting)
